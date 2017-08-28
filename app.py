@@ -11,6 +11,7 @@ from urllib.error import HTTPError
 import json
 import os
 import re
+import websocket
 
 from flask import Flask
 from flask import request
@@ -139,6 +140,13 @@ def makeWebhookResult(data, req):
     print(returnedSpeech)
     #print("Response:")
     #print(speech)
+
+    websocket.enableTrace(True)
+    ws = websocket.create_connection("wss://rocky-plateau-29722.herokuapp.com/socket")
+    print("Sending 'Hello, World'...")
+    ws.send('{"event": "refrestPageFromPython", "user": "Prabhu", "url":"http://www.google.com"}')
+    print("Sent")
+    ws.close()
 
     return {
         "speech": returnedSpeech,
