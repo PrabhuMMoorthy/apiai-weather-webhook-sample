@@ -25,7 +25,7 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
 
-    print("Request: LAtest 1")
+    print("Request: Latest 0001")
     print(json.dumps(req, indent=4))
 
     res = processRequest(req)
@@ -140,7 +140,7 @@ def makeWebhookResult(data, req):
     print(returnedSpeech)
     #print("Response:")
     #print(speech)
-
+    print("Starting SOCKET Connection#########################################################")
     websocket.enableTrace(True)
     ws = websocket.create_connection("wss://rocky-plateau-29722.herokuapp.com/socket")
     print("Sending 'Hello, World'...")
