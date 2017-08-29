@@ -144,7 +144,7 @@ def makeWebhookResult(data, req):
     websocket.enableTrace(True)
     ws = websocket.create_connection("wss://rocky-plateau-29722.herokuapp.com/socket")
     print("Sending 'Hello, World'...")
-    ws.send('{"event": "refrestPageFromPython", "user": "Prabhu", "url":"http://www.google.com"}')
+    ws.send('{"event": "refrestPageFromPython", "user": "Prabhu", "url":"/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Latest/c/510"}')
     print("Sent")
     ws.close()
 
