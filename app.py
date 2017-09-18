@@ -37,28 +37,16 @@ def webhook():
     return res
 
 def relayRequest(req):
-    if req.get("result").get("action") == "request_name_permission":
-        baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
-        reqObj = urllib.request.Request(baseurl)
-        reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
-        jsondata = json.dumps(req)
-        jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes
-        reqObj.add_header('Content-Length', len(jsondataasbytes))
-        result = urlopen(reqObj,jsondataasbytes).read()
-        #data = json.loads(result)
-        #res = makeWebhookResult(data,req)
-        return result
-    else:
-        baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
-        reqObj = urllib.request.Request(baseurl)
-        reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
-        jsondata = json.dumps(req)
-        jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes
-        reqObj.add_header('Content-Length', len(jsondataasbytes))
-        result = urlopen(reqObj,jsondataasbytes).read()
-        #data = json.loads(result)
-        #res = makeWebhookResult(data,req)
-        return result
+    baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
+    reqObj = urllib.request.Request(baseurl)
+    reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
+    jsondata = json.dumps(req)
+    jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes
+    reqObj.add_header('Content-Length', len(jsondataasbytes))
+    result = urlopen(reqObj,jsondataasbytes).read()
+    #data = json.loads(result)
+    #res = makeWebhookResult(data,req)
+    return result
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
