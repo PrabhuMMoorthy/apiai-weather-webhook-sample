@@ -98,7 +98,7 @@ def relayRequest(req):
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
-	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
+	    "followupEvent": {"name":"requestNamePermission", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
             "data": {"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris},
             # "contextOut": [],
             "source": "python-webhook"
