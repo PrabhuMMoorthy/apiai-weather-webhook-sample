@@ -39,7 +39,7 @@ def webhook():
             userIdHybris = context.get("parameters").get("userIdHybris")
             print(channel+" - "+userIdHybris)
             print("==========================")
-    if req.get("result").get("action") == "getUserDetails":
+    if (req.get("result").get("action") == "getUserDetails" or (channel != "desktop" and req.get("result").get("action") == "input.welcome")): 
         res = json.dumps(res, indent=4)
         #print(res)
         r = make_response(res)
