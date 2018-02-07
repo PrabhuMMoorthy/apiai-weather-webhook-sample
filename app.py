@@ -94,7 +94,7 @@ def relayRequest(req):
             # "contextOut": [],
             "source": "python-webhook"
         }
-    elif req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
+    elif (channel != "desktop" and req.get("result").get("action") == "input.welcome") or req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
         baseurl = "https://us-central1-highstreet-bot-v4-1.cloudfunctions.net/getNameFunction"
     else:
         baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
