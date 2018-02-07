@@ -98,8 +98,9 @@ def relayRequest(req):
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
-	    "followupEvent": {"name":"requestNamePermission", "data":{"test":"tedt"}},
-            "data": {"test1":"tset1"},
+	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
+            "data": {"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris},
+            # "contextOut": [],
             "source": "python-webhook"
         }
     elif (channel != "desktop" and req.get("result").get("action") == "input.welcome") or req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
